@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-/* -----ABSTRACTION-----*/
+/*-----ABSTRACTION-----*/
 abstract class Person{
     protected String name;
     protected String usn;
     abstract void displayDetails();
 }
-/* -----ENCAPSULATION+INHERITANCE -----*/
-class Student extends Person{
+/*-----ENCAPSULATION+INHERITANCE -----*/
+class BaseStudent extends Person{
     private int marks;
-    public Student(String name,String usn,int marks) {
+    public BaseStudent(String name,String usn,int marks) {
         this.name=name;
         this.usn=usn;
         this.marks=marks;
@@ -37,8 +37,8 @@ class Student extends Person{
         System.out.println("Marks:"+marks);
     }
 }
-/* -----POLYMORPHISM -----*/
-class EngineeringStudent extends Student{
+/*-----POLYMORPHISM-----*/
+class EngineeringStudent extends BaseStudent{
     private String branch;
     public EngineeringStudent(String name,String usn,int marks,String branch){
         super(name,usn,marks);
@@ -55,7 +55,7 @@ class EngineeringStudent extends Student{
         System.out.println("Grade:"+calculateGrade());
     }
 }
-/* -----DATA STRUCTURE-----*/
+/*-----DATA STRUCTURE-----*/
 class StudentManager{
     ArrayList<EngineeringStudent>students=new ArrayList<>();
     void addStudent(EngineeringStudent s){
